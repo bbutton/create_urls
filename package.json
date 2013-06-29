@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "create-url",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,5 +9,8 @@
     "express": "3.3.1",
     "jade": "*",
     "stylus": "*"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
