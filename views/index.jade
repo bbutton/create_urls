@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Custom URL Creator for Mindspark Partners
+  p Fill out name and email of partner to create custom URL for them
+
+  form(action='create_url', method='get')
+    label(for='firstName') First Name
+    input(id='firstName', name='firstName', type='text', value='')
+    label(for='lastName') Last Name
+    input(id='lastName', name='lastName', type='text', value='')
+    label(for='email') Email
+    input(id='email', name='email', value='', type='text', placeholder='@')
+    input(id='submit', type='submit', value='Create')
+
+
