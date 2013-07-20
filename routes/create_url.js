@@ -2,17 +2,16 @@
  * GET users listing.
  */
 
-var https = require('https');
-var basePath = 'http://www.mindsparkpartners.org/refer-friends/referral-form/';
-var bitlyPath = 'https://api-ssl.bitly.com/v3/shorten?access_token=37eeaacdd42f6c196a1449aa05587d8ee4b45407&longUrl=';
+var https = require('https')
+    , config = require('../customization/config');
 
 exports.create_url = function(req, res){
-  var path=basePath 
+  var path=config.bitly.base_path
 	  + '?referrersName[first]=' + req.query['firstName']
 	  + '&referrersName[last]=' + req.query['lastName']
 	  + '&referrersEmail=' + req.query['email'];
   var encodedUri = encodeURIComponent(path);
-  var reqPath = bitlyPath + encodedUri;
+  var reqPath = config.bitly.bitly_path + config.bitly.api_key + config.bitly.long_url_header + encodedUri;
   console.log("Retrieving URL from bitly: " + reqPath);
 
   https.get(reqPath, function(bitlyRes) {
